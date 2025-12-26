@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Heart, Sparkles, Star } from "lucide-react"
 import { useState, useEffect } from "react"
 
-export default function LyricsScreen() {
+export default function LyricsScreen({ onNext }) {
     const lyrics = [
         "Tu haseen tera naam haseen ae",
         "Tere ishq da jaam haseen ae",
@@ -135,7 +135,7 @@ export default function LyricsScreen() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 1, ease: "easeInOut" }}
-                    className="absolute inset-0 flex flex-col gap-6 items-center justify-center pointer-events-none "
+                    className="absolute inset-0 flex flex-col gap-6 items-center justify-center"
                 >
                     <motion.div
                         initial={{ opacity: 0, scale: 0.8 }}
@@ -144,13 +144,13 @@ export default function LyricsScreen() {
                     >
                         <img src="/gifs/3.gif" className="w-60" alt="flower" />
                     </motion.div>
-                    <motion.h2
-                        initial={{ opacity: 0, y: 50, scale: 0.8 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        transition={{ delay: 1, duration: 1, ease: "easeInOut" }}
-                        className="text-3xl md:text-4xl font-semibold px-4 text-center">
-                        For My Haseen Girl❤️
-                    </motion.h2>
+                    <button
+  onClick={onNext}
+  className="mt-10 bg-pink-500 hover:bg-pink-600 text-white px-10 py-4 rounded-full text-lg relative z-50 pointer-events-auto"
+>
+  Continue 💖
+</button>
+
                 </motion.div>
             )}
         </motion.div>
